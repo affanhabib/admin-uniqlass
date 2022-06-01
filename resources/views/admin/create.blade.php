@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col">
         <div class="row">
-            <h3 class="title">Daftar Admin</h3>
+            <h3 class="title">Tambah Admin</h3>
         </div>
         <div class="row">
             <form method="POST" action="{{ route('daftar-admin.store') }}">

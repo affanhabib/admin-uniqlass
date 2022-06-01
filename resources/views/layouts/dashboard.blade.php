@@ -60,8 +60,8 @@
                 </li>
                 <li>
                     <a href="/daftar-event" class="nav-link text-white">
-                        <i class='bx bx-spreadsheet'></i>
-                        <span class="mx-2">Artikel</span>
+                        <i class='bx bx-calendar-event'></i>
+                        <span class="mx-2">Event</span>
                     </a>
                 </li>
                 <li>
