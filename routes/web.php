@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::view('/daftar-admin', 'admin.admin');
-Route::view('/daftar-mitra', 'mitra.mitra');
+Route::resource('/daftar-admin', 'UsersController');
+Route::resource('/daftar-mitra', 'MitraController');
 Route::view('/daftar-artikel', 'artikel.artikel');

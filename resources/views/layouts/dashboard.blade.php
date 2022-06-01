@@ -44,12 +44,14 @@
                     </a>
                 </li>
                 <hr style="background-color: white">
+                @if (Auth::user()->role == 'superadmin' || Auth::user()->role == 'owner')
                 <li>
                     <a href="/daftar-admin" class="nav-link text-white">
                         <i class="bx bx-user-check"></i>
                         <span class="mx-2">Admin</span>
                     </a>
                 </li>
+                @endif
                 <li>
                     <a href="/daftar-mitra" class="nav-link text-white">
                         <i class='bx bxs-factory'></i>
@@ -100,16 +102,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
-
-    <!-- custom js -->
-    <script>
-        var menu_btn = document.querySelector("#menu-btn");
-        var sidebar = document.querySelector("#sidebar");
-        var container = document.querySelector(".my-container");
-        menu_btn.addEventListener("click", () => {
-            sidebar.classList.toggle("active-nav");
-            container.classList.toggle("active-cont");
-        });
-    </script>
 </body>
 </html>
