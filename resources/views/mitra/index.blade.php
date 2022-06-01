@@ -34,7 +34,7 @@
                         <td>{{ $mtr->nama }}</td>
                         <td>{{ $mtr->lokasi }}</td>
                         <td>
-                            <img class="logo" src="{{ asset('logo/') }}/{{$mtr->logo}}" alt="" style="height: 30px">
+                            <img class="d-flex justify-content-center" src="{{ asset('logo/') }}/{{$mtr->logo}}" alt="" style="height: 50px">
                         </td>
                         <td>
                             <form action="{{ route('daftar-mitra.destroy', $mtr->id) }}" method="POST">

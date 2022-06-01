@@ -21,7 +21,7 @@
             <form action="{{ route('daftar-mitra.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="logo" class="col-md-6 col-form-label text-md-right">logo</label>
+                    <label for="logo" class="col-md-6 col-form-label text-md-right">Logo</label>
                     <div class="col-md-6">
                         <input id="logo" type="file" class="rounded form-control @error('logo') is-invalid @enderror" name="logo" autofocus accept="image/jpeg, image/png">
                         @error('logo')
