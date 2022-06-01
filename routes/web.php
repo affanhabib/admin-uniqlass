@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('/daftar-admin', 'UsersController');
+Route::resource('/daftar-admin', 'UsersController')->middleware('checkRole:superadmin,owner');
 Route::resource('/daftar-mitra', 'MitraController');
-Route::view('/daftar-artikel', 'artikel.artikel');
+Route::resource('/daftar-event', 'EventController');
+Route::resource('/daftar-artikel', 'ArticleController');
