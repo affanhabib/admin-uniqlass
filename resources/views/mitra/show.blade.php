@@ -50,6 +50,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <form action="{{ route('daftar-mitra.destroy', $mitra->id) }}" method="POST">
+                <a href="{{ route('daftar-mitra.index') }}" class="btn btn-secondary"><i class="fa fa-ban"></i> Cancel</a>
+                <a href="{{ route('daftar-mitra.edit',$mitra->id) }}" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type='submit'><i class="fa fa-trash"></i> Hapus</button>
+            </form>
+        </div>
     </div>
 </div>
 @endsection
