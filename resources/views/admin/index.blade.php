@@ -37,17 +37,21 @@
                             <form action="{{ route('daftar-admin.destroy', $adm->id) }}" method="POST">
                                 <a href="{{ route('daftar-admin.show',$adm->id) }}" class="btn btn-info"><i class="fa fa-info-circle"></i> Detail</a>
                                 <a href="{{ route('daftar-admin.edit',$adm->id) }}" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                                @if (Auth::user()->id != $adm->id)
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type='submit'><i class="fa fa-trash"></i> Hapus</button>
+                                @endif
                             </form>
                             @elseif ($adm->id != 1)
                             <form action="{{ route('daftar-admin.destroy', $adm->id) }}" method="POST">
                                 <a href="{{ route('daftar-admin.show',$adm->id) }}" class="btn btn-info"><i class="fa fa-info-circle"></i> Detail</a>
                                 <a href="{{ route('daftar-admin.edit',$adm->id) }}" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                                @if (Auth::user()->id != $adm->id)
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type='submit'><i class="fa fa-trash"></i> Hapus</button>
+                                @endif
                             </form>
                             @endif
                         </td>

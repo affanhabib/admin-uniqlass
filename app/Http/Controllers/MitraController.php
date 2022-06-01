@@ -116,10 +116,12 @@ class MitraController extends Controller
         ]);
         $mitra = Mitra::find($id);
 
-        $logoname = 'logo'.'-'.$request->nama.'.'.$request->image->extension();
-        $request->logo->move(public_path('logo'), $logoname);
+        if (!empty($user)) {
+            $logoname = 'logo'.'-'.$request->nama.'.'.$request->image->extension();
+            $request->logo->move(public_path('logo'), $logoname);
 
-        $mitra->logo = $logoname;
+            $mitra->logo = $logoname;
+        }
         $mitra->nama = $request['nama'];
         $mitra->tahun_berdiri = $request['tahun_berdiri'];
         $mitra->deskripsi = $request['deskripsi'];
