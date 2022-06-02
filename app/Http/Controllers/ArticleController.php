@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -14,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article.index');
+        $article = Article::all();
+        return view('article.index', ['article' => $article]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'header' => 'required',
+            'judul' => 'required',
+            'artikel' => 'required',
+        ]);
+        $headername = 'header'.'-'.$request->judul.'.'.$request->header->extension();
+        $request->header->move(public_path('header'), $headername);
+        Article::create([
+            'header' => $headername,
+            'judul' => $request['judul'],
+            'artikel' => $request['artikel'],
+            'author' => Auth::user()->name,
+        ]);
+        return redirect()->route('daftar-artikel.index')->with('success','Data berhasil di input');
     }
 
     /**
@@ -44,9 +59,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        $article = Article::find($id);
+        return view('article.show',compact('article'));
     }
 
     /**
@@ -55,9 +71,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('article.edit',compact('article'));
     }
 
     /**
@@ -67,9 +84,26 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'header' => 'required',
+            'judul' => 'required',
+            'artikel' => 'required',
+        ]);
+        $article = Article::find($id);
+
+        if (!empty($request->header)){
+            $headername = 'header'.'-'.$request->judul.'.'.$request->header->extension();
+            $request->header->move(public_path('header'), $headername);
+
+            $article->header = $headername;
+        }
+        $article->judul = $request['judul'];
+        $article->artikel = $request['artikel'];
+
+        $article->save();
+        return redirect()->route('daftar-artikel.index')->with('success','Data berhasil di update');
     }
 
     /**
@@ -78,8 +112,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        return redirect()->route('daftar-artikel.index')->with('success','Artikel berhasil dihapus');
     }
 }
