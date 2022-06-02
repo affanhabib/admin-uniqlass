@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Auth;
 
 class EventController extends Controller
 {
@@ -14,7 +15,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('event.index');
+        $event = Event::all();
+        return view('event.index', ['event' => $event]);
     }
 
     /**
@@ -24,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -35,7 +37,37 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'poster' => 'required',
+            'program' => 'required',
+            'judul_event' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_berakhir' => 'required',
+            'waktu' => 'required',
+            'narasumber' => 'required',
+            'lokasi' => 'required',
+            'deskripsi' => 'required',
+            'link' => 'required',
+            'show_carousel' => 'required',
+        ]);
+        $postername = 'poster'.'-'.$request->judul_event.'.'.$request->poster->extension();
+        $request->poster->move(public_path('poster'), $postername);
+        Event::create([
+            'poster' => $postername,
+            'program' => $request['program'],
+            'subprogram' => $request['subprogram'],
+            'judul_event' => $request['judul_event'],
+            'tanggal_mulai' => $request['tanggal_mulai'],
+            'tanggal_berakhir' => $request['tanggal_berakhir'],
+            'waktu' => $request['waktu'],
+            'narasumber' => $request['narasumber'],
+            'lokasi' => $request['lokasi'],
+            'deskripsi' => $request['deskripsi'],
+            'link' => $request['link'],
+            'show_carousel' => $request['show_carousel'],
+            'inputer' => Auth::user()->name,
+        ]);
+        return redirect()->route('daftar-event.index')->with('success','Data berhasil di input');
     }
 
     /**
@@ -44,9 +76,10 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $event = Event::find($id);
+        return view('event.show',compact('event'));
     }
 
     /**
@@ -55,9 +88,10 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        return view('event.edit',compact('event'));
     }
 
     /**
@@ -67,9 +101,42 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'program' => 'required',
+            'judul_event' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_berakhir' => 'required',
+            'waktu' => 'required',
+            'narasumber' => 'required',
+            'lokasi' => 'required',
+            'deskripsi' => 'required',
+            'link' => 'required',
+            'show_carousel' => 'required',
+        ]);
+        $event = Event::find($id);
+
+        if (!empty($request->poster)){
+            $postername = 'poster'.'-'.$request->judul_event.'.'.$request->poster->extension();
+            $request->poster->move(public_path('poster'), $postername);
+
+            $event->poster = $postername;
+        }
+        $event->program = $request['program'];
+        $event->subprogram = $request['subprogram'];
+        $event->judul_event = $request['judul_event'];
+        $event->tanggal_mulai = $request['tanggal_mulai'];
+        $event->tanggal_berakhir = $request['tanggal_berakhir'];
+        $event->waktu = $request['waktu'];
+        $event->narasumber = $request['narasumber'];
+        $event->lokasi = $request['lokasi'];
+        $event->deskripsi = $request['deskripsi'];
+        $event->link = $request['link'];
+        $event->show_carousel = $request['show_carousel'];
+
+        $event->save();
+        return redirect()->route('daftar-event.index')->with('success','Data berhasil di update');
     }
 
     /**
@@ -78,8 +145,10 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+        return redirect()->route('daftar-event.index')->with('success','Event berhasil dihapus');
     }
 }

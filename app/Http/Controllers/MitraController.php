@@ -116,8 +116,8 @@ class MitraController extends Controller
         ]);
         $mitra = Mitra::find($id);
 
-        if (!empty($user)) {
-            $logoname = 'logo'.'-'.$request->nama.'.'.$request->image->extension();
+        if (!empty($request->logo)) {
+            $logoname = 'logo'.'-'.$request->nama.'.'.$request->logo->extension();
             $request->logo->move(public_path('logo'), $logoname);
 
             $mitra->logo = $logoname;
