@@ -69,6 +69,10 @@
 </div>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
-    CKEDITOR.replace( 'artikel' );
+    // CKEDITOR.replace( 'artikel' );
+    CKEDITOR.replace( 'artikel', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
 </script>
 @endsection
