@@ -70,6 +70,24 @@
                         <span class="mx-2">Artikel</span>
                     </a>
                 </li>
+                <li>
+                    <a href="" class="nav-link text-white">
+                        <i class='bx bx-photo-album'></i>
+                        <span class="mx-2">Galeri</span>
+                    </a>
+                </li>
+                <hr style="background-color: white">
+                <p class="text-white ms-2 fw-bold">Konten</p>
+                <li>
+                    <a href="" class="nav-link text-white">
+                        <span class="mx-2">Homepage</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="nav-link text-white">
+                        <span class="mx-2">Tentang Uniqlass</span>
+                    </a>
+                </li>
                 <hr style="background-color: white">
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
