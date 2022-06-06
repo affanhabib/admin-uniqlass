@@ -149,6 +149,7 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $event->delete();
+        unlink(public_path().'/poster/'.$event->poster);
         return redirect()->route('daftar-event.index')->with('success','Event berhasil dihapus');
     }
 }

@@ -79,12 +79,12 @@
                 <hr style="background-color: white">
                 <p class="text-white ms-2 fw-bold">Konten</p>
                 <li>
-                    <a href="" class="nav-link text-white">
+                    <a href="/konten-homepage" class="nav-link text-white">
                         <span class="mx-2">Homepage</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="nav-link text-white">
+                    <a href="/konten-tentang" class="nav-link text-white">
                         <span class="mx-2">Tentang Uniqlass</span>
                     </a>
                 </li>

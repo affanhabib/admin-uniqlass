@@ -52,7 +52,7 @@
             <div class="card-body">
                 <h5 class="card-title">Galeri Foto</h5>
                 <p class="card-text">Upload foto-foto kegiatan menarik dari Mitra Uniqlass. Bisa diakses juga melalui sidebar di samping</p>
-                <a href="/galeri" class="btn btn-success">Upload Yuk</a>
+                <a href="{{ route('galeri.index') }}" class="btn btn-success">Upload Yuk</a>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
             <div class="card-body">
                 <h5 class="card-title">Konten Homepage</h5>
                 <p class="card-text">Kelola konten yang ditampilkan pada halaman awal Uniqlass</p>
-                <a href="#" class="btn btn-primary">Lest Start</a>
+                <a href="/konten-homepage" class="btn btn-primary">Lest Start</a>
             </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
             <div class="card-body">
                 <h5 class="card-title">Konten "Tentang Uniqlass"</h5>
                 <p class="card-text">Atur konten yang akan ditampilkan pada halaman "Tentang Kami"</p>
-                <a href="#" class="btn btn-primary">Lest Go...</a>
+                <a href="/konten-tentang" class="btn btn-primary">Lest Go...</a>
             </div>
             </div>
         </div>

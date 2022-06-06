@@ -147,6 +147,7 @@ class MitraController extends Controller
     {
         $mitra = Mitra::find($id);
         $mitra->delete();
+        unlink(public_path().'/logo/'.$mitra->logo);
         return redirect()->route('daftar-mitra.index')->with('success','Mitra berhasil dihapus');
     }
 }

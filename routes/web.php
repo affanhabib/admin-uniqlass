@@ -22,3 +22,5 @@ Route::resource('/daftar-event', 'EventController');
 Route::resource('/daftar-artikel', 'ArticleController');
 Route::resource('/galeri', 'GaleriController');
 Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+Route::get('/konten-homepage', function () { return view('homepage.index'); });
+Route::get('/konten-tentang', function () { return view('tentang.index'); });

@@ -99,6 +99,7 @@ class GaleriController extends Controller
     {
         $galeri = Galeri::find($id);
         $galeri->delete();
+        unlink(public_path().'/photo/'.$galeri->photo);
         return redirect()->route('galeri.index')->with('success','Photo berhasil dihapus');
     }
 }

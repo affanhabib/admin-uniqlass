@@ -116,6 +116,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $article->delete();
+        unlink(public_path().'/header/'.$article->header);
         return redirect()->route('daftar-artikel.index')->with('success','Artikel berhasil dihapus');
     }
 }
