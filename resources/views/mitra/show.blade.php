@@ -10,7 +10,7 @@
             <h1>{{ $mitra->nama }}</h1>
             <div class="col-md-6">
                 <div class="row text-secondary">
-                    <p>Beridiri Sejak {{ $mitra->tahun_berdiri }}</p>
+                    <p>Berdiri Sejak {{ $mitra->tahun_berdiri }}</p>
                 </div>
                 <div class="row">
                     {!! $mitra->deskripsi !!}
