@@ -20,5 +20,5 @@ Route::resource('/daftar-admin', 'UsersController')->middleware('checkRole:super
 Route::resource('/daftar-mitra', 'MitraController');
 Route::resource('/daftar-event', 'EventController');
 Route::resource('/daftar-artikel', 'ArticleController');
-	
+Route::resource('/galeri', 'GaleriController');
 Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');

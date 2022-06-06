@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="nav-link text-white">
+                    <a href="/galeri" class="nav-link text-white">
                         <i class='bx bx-photo-album'></i>
                         <span class="mx-2">Galeri</span>
                     </a>

@@ -10,4 +10,8 @@ class Mitra extends Model
     	'logo', 'nama', 'tahun_berdiri', 'deskripsi', 'lokasi', 'jadwal', 'materi', 'perlengkapan_peserta',
         'fasilitas', 'keuntungan', 'sertifikat', 'inputer'
     ];
+    public function galeri()
+    {
+        return $this->hasMany('App\Galeri', 'mitra_id');
+    }
 }

@@ -52,7 +52,7 @@
             <div class="card-body">
                 <h5 class="card-title">Galeri Foto</h5>
                 <p class="card-text">Upload foto-foto kegiatan menarik dari Mitra Uniqlass. Bisa diakses juga melalui sidebar di samping</p>
-                <a href="#" class="btn btn-success">Upload Yuk</a>
+                <a href="/galeri" class="btn btn-success">Upload Yuk</a>
             </div>
         </div>
     </div>
