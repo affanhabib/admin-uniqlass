@@ -6,16 +6,16 @@
         <div class="row">
             <h3 class="title">Galeri Foto {{ $data['mitra']->nama }}</h3>
         </div>
-        <div class="row mt-4">
+        <div class="row">
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     <p>{{ $message }}</p>
                 </div>
             @endif
             @foreach ($data['galeri'] as $glr)
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('photo/') }}/{{$glr->photo}}" alt="">
+            <div class="col-sm-4 mt-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{ asset('photo/') }}/{{$glr->photo}}" alt="" style="height: 18rem; object-fit: cover;">
                     <div class="card-body">
                         <form action="{{ route('galeri.destroy', $glr->id) }}" method="POST">
                             @csrf

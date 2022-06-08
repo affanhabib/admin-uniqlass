@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col">
         <div class="row">
-            <h3 class="title">Edit Header Homepage</h3>
+            <h3 class="title">Edit Video Instagram di Homepage</h3>
         </div>
         <div class="row">
             @if ($errors->any())
@@ -22,15 +22,17 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-
-            <form action="/update_header" method="POST">
+            <div>
+                <p>Ambil kode dibelakang link Youtube. Contoh: https://youtu.be/<span class="link-danger fw-bold">FE0MlF7tvec</span></p>
+            </div>
+            <form action="/update_yt" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="judul" class="col-md-6 col-form-label text-md-right">Judul</label>
+                    <label for="yt1" class="col-md-6 col-form-label text-md-right">Kode Video 1</label>
                     <div class="col-md-6">
-                        <input id="judul" type="text" class="rounded form-control @error('judul') is-invalid @enderror" name="judul" required autofocus value="{{ $header->judul }}">
-                        @error('judul')
+                        <input id="yt1" type="text" class="rounded form-control @error('yt1') is-invalid @enderror" name="yt1" required autofocus value="{{ $yt->yt1 }}">
+                        @error('yt1')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -38,10 +40,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="caption" class="col-md-6 col-form-label text-md-right">Caption</label>
+                    <label for="yt2" class="col-md-6 col-form-label text-md-right">Kode Video 2</label>
                     <div class="col-md-6">
-                        <textarea id="caption" type="text" class="rounded form-control @error('caption') is-invalid @enderror" name="caption" required autofocus>{{ $header->caption }}</textarea>
-                        @error('caption')
+                        <input id="yt2" type="text" class="rounded form-control @error('yt2') is-invalid @enderror" name="yt2" required autofocus value="{{ $yt->yt2 }}">
+                        @error('yt2')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -49,21 +51,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="tombol" class="col-md-6 col-form-label text-md-right">Copywriting Tombol</label>
+                    <label for="yt3" class="col-md-6 col-form-label text-md-right">Kode Video 3</label>
                     <div class="col-md-6">
-                        <input id="tombol" type="text" class="rounded form-control @error('tombol') is-invalid @enderror" name="tombol" required autofocus value="{{ $header->tombol }}">
-                        @error('tombol')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="link" class="col-md-6 col-form-label text-md-right">Link Tombol</label>
-                    <div class="col-md-6">
-                        <input id="link" type="text" class="rounded form-control @error('link') is-invalid @enderror" name="link" required autofocus value="{{ $header->link }}">
-                        @error('link')
+                        <input id="yt3" type="text" class="rounded form-control @error('yt3') is-invalid @enderror" name="yt3" required autofocus value="{{ $yt->yt3 }}">
+                        @error('yt3')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -84,9 +75,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('ckeditor_basic/ckeditor.js') }}"></script>
-<script>
-    CKEDITOR.replace( 'caption' );
-    CKEDITOR.config.height = 150;
-</script>
 @endsection

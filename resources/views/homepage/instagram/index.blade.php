@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col">
         <div class="row">
-            <h3 class="title">Edit Header Homepage</h3>
+            <h3 class="title">Edit Postingan Instagram di Homepage</h3>
         </div>
         <div class="row">
             @if ($errors->any())
@@ -23,14 +23,14 @@
                 </div>
             @endif
 
-            <form action="/update_header" method="POST">
+            <form action="/update_ig" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="judul" class="col-md-6 col-form-label text-md-right">Judul</label>
+                    <label for="ig1" class="col-md-6 col-form-label text-md-right">Link Postingan 1</label>
                     <div class="col-md-6">
-                        <input id="judul" type="text" class="rounded form-control @error('judul') is-invalid @enderror" name="judul" required autofocus value="{{ $header->judul }}">
-                        @error('judul')
+                        <input id="ig1" type="text" class="rounded form-control @error('ig1') is-invalid @enderror" name="ig1" required autofocus value="{{ $ig->ig1 }}">
+                        @error('ig1')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -38,10 +38,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="caption" class="col-md-6 col-form-label text-md-right">Caption</label>
+                    <label for="ig2" class="col-md-6 col-form-label text-md-right">Link Postingan 2</label>
                     <div class="col-md-6">
-                        <textarea id="caption" type="text" class="rounded form-control @error('caption') is-invalid @enderror" name="caption" required autofocus>{{ $header->caption }}</textarea>
-                        @error('caption')
+                        <input id="ig2" type="text" class="rounded form-control @error('ig2') is-invalid @enderror" name="ig2" required autofocus value="{{ $ig->ig2 }}">
+                        @error('ig2')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -49,21 +49,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="tombol" class="col-md-6 col-form-label text-md-right">Copywriting Tombol</label>
+                    <label for="ig3" class="col-md-6 col-form-label text-md-right">Link Postingan 3</label>
                     <div class="col-md-6">
-                        <input id="tombol" type="text" class="rounded form-control @error('tombol') is-invalid @enderror" name="tombol" required autofocus value="{{ $header->tombol }}">
-                        @error('tombol')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="link" class="col-md-6 col-form-label text-md-right">Link Tombol</label>
-                    <div class="col-md-6">
-                        <input id="link" type="text" class="rounded form-control @error('link') is-invalid @enderror" name="link" required autofocus value="{{ $header->link }}">
-                        @error('link')
+                        <input id="ig3" type="text" class="rounded form-control @error('ig3') is-invalid @enderror" name="ig3" required autofocus value="{{ $ig->ig3 }}">
+                        @error('ig3')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -84,9 +73,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('ckeditor_basic/ckeditor.js') }}"></script>
-<script>
-    CKEDITOR.replace( 'caption' );
-    CKEDITOR.config.height = 150;
-</script>
 @endsection

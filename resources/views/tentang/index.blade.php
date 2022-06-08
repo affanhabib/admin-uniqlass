@@ -9,14 +9,8 @@
         <div class="row">
             <div class="card mt-4" style="cursor: pointer;" onclick="">
                 <div class="card-body">
-                    <h5 class="card-title">Deskripsi Rinci</h5>
-                    <p class="card-text">Deskripsi dari Uniqlass yang lebih rinci dan akan ditampilkan di halaman Tentang Uniqlass</p>
-                </div>
-            </div>
-            <div class="card mt-4" style="cursor: pointer;" onclick="">
-                <div class="card-body">
-                    <h5 class="card-title">Visi dan Misi</h5>
-                    <p class="card-text">Visi dan Misi Uniqlass yang akan ditampilkan di halaman Tentang Uniqlass</p>
+                    <h5 class="card-title">Deskripsi Rinci, Visi dan Misi</h5>
+                    <p class="card-text">Deskripsi dari Uniqlass yang lebih rinci; Visi dan Misi Uniqlass yang akan ditampilkan di halaman Tentang Uniqlass</p>
                 </div>
             </div>
             <div class="card mt-4" style="cursor: pointer;" onclick="">

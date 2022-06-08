@@ -132,6 +132,7 @@ class MitraController extends Controller
         $mitra->fasilitas = $request['fasilitas'];
         $mitra->keuntungan = $request['keuntungan'];
         $mitra->sertifikat = $request['sertifikat'];
+        $mitra->inputer = Auth::user()->name;
 
         $mitra->save();
         return redirect()->route('daftar-mitra.index')->with('success','Data berhasil di update');

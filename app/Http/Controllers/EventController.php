@@ -134,6 +134,7 @@ class EventController extends Controller
         $event->deskripsi = $request['deskripsi'];
         $event->link = $request['link'];
         $event->show_carousel = $request['show_carousel'];
+        $event->inputer = Auth::user()->name;
 
         $event->save();
         return redirect()->route('daftar-event.index')->with('success','Data berhasil di update');
