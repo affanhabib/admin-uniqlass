@@ -73,7 +73,7 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('ckeditor_basic/ckeditor.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     CKEDITOR.replace( 'deskripsi' );
     CKEDITOR.replace( 'misi' );
