@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col">
         <div class="row">
-            <h3 class="title">Edit Video Instagram di Homepage</h3>
+            <h3 class="title">Tambah Founder</h3>
         </div>
         <div class="row">
             @if ($errors->any())
@@ -17,22 +17,14 @@
                     </ul>
                 </div>
             @endif
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
-            <div>
-                <p>Ambil kode dibelakang link Youtube. Contoh: https://youtu.be/<span class="link-danger fw-bold">FE0MlF7tvec</span> atau https://www.youtube.com/watch?v=<span class="link-danger fw-bold">FE0MlF7tvec</span></p>
-            </div>
-            <form action="/update_yt" method="POST">
+
+            <form action="{{ route('founder.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PATCH')
                 <div class="form-group">
-                    <label for="yt1" class="col-md-6 col-form-label text-md-right">Kode Video 1</label>
+                    <label for="foto" class="col-md-6 col-form-label text-md-right">Foto</label>
                     <div class="col-md-6">
-                        <input id="yt1" type="text" class="rounded form-control @error('yt1') is-invalid @enderror" name="yt1" required autofocus value="{{ $yt->yt1 }}">
-                        @error('yt1')
+                        <input id="foto" type="file" class="rounded form-control @error('foto') is-invalid @enderror" name="foto" autofocus accept="image/jpeg, image/png">
+                        @error('foto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -40,10 +32,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="yt2" class="col-md-6 col-form-label text-md-right">Kode Video 2</label>
+                    <label for="nama" class="col-md-6 col-form-label text-md-right">Nama</label>
                     <div class="col-md-6">
-                        <input id="yt2" type="text" class="rounded form-control @error('yt2') is-invalid @enderror" name="yt2" required autofocus value="{{ $yt->yt2 }}">
-                        @error('yt2')
+                        <input id="nama" type="text" class="rounded form-control @error('nama') is-invalid @enderror" name="nama" required autofocus>
+                        @error('nama')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -51,10 +43,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="yt3" class="col-md-6 col-form-label text-md-right">Kode Video 3</label>
+                    <label for="jabatan" class="col-md-6 col-form-label text-md-right">Jabatan</label>
                     <div class="col-md-6">
-                        <input id="yt3" type="text" class="rounded form-control @error('yt3') is-invalid @enderror" name="yt3" required autofocus value="{{ $yt->yt3 }}">
-                        @error('yt3')
+                        <input id="jabatan" type="text" class="rounded form-control @error('jabatan') is-invalid @enderror" name="jabatan" required autofocus>
+                        @error('jabatan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -64,9 +56,9 @@
                 <div>
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary">
-                            {{ __('Update') }}
+                            {{ __('Tambah') }}
                         </button>
-                        <a href="/konten-homepage" class="btn btn-secondary">
+                        <a href="{{ route('founder.index') }}" class="btn btn-secondary">
                             {{ __('Cancel') }}
                         </a>
                     </div>

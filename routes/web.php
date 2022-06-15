@@ -21,9 +21,12 @@ Route::resource('/daftar-mitra', 'MitraController');
 Route::resource('/daftar-event', 'EventController');
 Route::resource('/daftar-artikel', 'ArticleController');
 Route::resource('/galeri', 'GaleriController');
+
 Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+
 Route::get('/konten-homepage', function () { return view('homepage.index'); });
 Route::get('/konten-tentang', function () { return view('tentang.index'); });
+
 Route::get('/konten-homepage/header', 'HomepageController@edit_header');
 Route::patch('/update_header', 'HomepageController@update_header');
 Route::get('/konten-homepage/deskripsi', 'HomepageController@edit_deskripsi');
@@ -32,3 +35,8 @@ Route::get('/konten-homepage/instagram', 'HomepageController@edit_ig');
 Route::patch('/update_ig', 'HomepageController@update_ig');
 Route::get('/konten-homepage/youtube', 'HomepageController@edit_yt');
 Route::patch('/update_yt', 'HomepageController@update_yt');
+
+Route::get('/konten-tentang/deskripsi-visi-misi', 'TentangController@edit_tentang');
+Route::patch('/update_tentang', 'TentangController@update_tentang');
+
+Route::resource('/konten-tentang/founder', 'FounderController');

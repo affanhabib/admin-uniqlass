@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col">
         <div class="row">
-            <h3 class="title">Edit Video Instagram di Homepage</h3>
+            <h3 class="title">Edit Tentang Uniqlas</h3>
         </div>
         <div class="row">
             @if ($errors->any())
@@ -22,17 +22,15 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-            <div>
-                <p>Ambil kode dibelakang link Youtube. Contoh: https://youtu.be/<span class="link-danger fw-bold">FE0MlF7tvec</span> atau https://www.youtube.com/watch?v=<span class="link-danger fw-bold">FE0MlF7tvec</span></p>
-            </div>
-            <form action="/update_yt" method="POST">
+
+            <form action="/update_tentang" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="yt1" class="col-md-6 col-form-label text-md-right">Kode Video 1</label>
+                    <label for="deskripsi" class="col-md-6 col-form-label text-md-right">Deskripsi</label>
                     <div class="col-md-6">
-                        <input id="yt1" type="text" class="rounded form-control @error('yt1') is-invalid @enderror" name="yt1" required autofocus value="{{ $yt->yt1 }}">
-                        @error('yt1')
+                        <textarea id="deskripsi" type="text" class="rounded form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" required autofocus>{{ $tentang->deskripsi }}</textarea>
+                        @error('deskripsi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -40,10 +38,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="yt2" class="col-md-6 col-form-label text-md-right">Kode Video 2</label>
+                    <label for="visi" class="col-md-6 col-form-label text-md-right">Visi</label>
                     <div class="col-md-6">
-                        <input id="yt2" type="text" class="rounded form-control @error('yt2') is-invalid @enderror" name="yt2" required autofocus value="{{ $yt->yt2 }}">
-                        @error('yt2')
+                        <textarea id="visi" type="text" class="rounded form-control @error('visi') is-invalid @enderror" name="visi" required autofocus>{{ $tentang->visi }}</textarea>
+                        @error('visi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -51,10 +49,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="yt3" class="col-md-6 col-form-label text-md-right">Kode Video 3</label>
+                    <label for="misi" class="col-md-6 col-form-label text-md-right">Misi</label>
                     <div class="col-md-6">
-                        <input id="yt3" type="text" class="rounded form-control @error('yt3') is-invalid @enderror" name="yt3" required autofocus value="{{ $yt->yt3 }}">
-                        @error('yt3')
+                        <textarea id="misi" type="text" class="rounded form-control @error('misi') is-invalid @enderror" name="misi" required autofocus>{{ $tentang->misi }}</textarea>
+                        @error('misi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -66,7 +64,7 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Update') }}
                         </button>
-                        <a href="/konten-homepage" class="btn btn-secondary">
+                        <a href="/konten-tentang" class="btn btn-secondary">
                             {{ __('Cancel') }}
                         </a>
                     </div>
@@ -75,4 +73,10 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('ckeditor_basic/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'deskripsi' );
+    CKEDITOR.replace( 'misi' );
+    CKEDITOR.config.height = 150;
+</script>
 @endsection

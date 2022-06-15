@@ -7,13 +7,13 @@
             <h3 class="title">Konten Tentang Uniqlass</h3>
         </div>
         <div class="row">
-            <div class="card mt-4" style="cursor: pointer;" onclick="">
+            <div class="card mt-4" style="cursor: pointer;" onclick="window.location='/konten-tentang/deskripsi-visi-misi';">
                 <div class="card-body">
                     <h5 class="card-title">Deskripsi Rinci, Visi dan Misi</h5>
                     <p class="card-text">Deskripsi dari Uniqlass yang lebih rinci; Visi dan Misi Uniqlass yang akan ditampilkan di halaman Tentang Uniqlass</p>
                 </div>
             </div>
-            <div class="card mt-4" style="cursor: pointer;" onclick="">
+            <div class="card mt-4" style="cursor: pointer;" onclick="window.location='/konten-tentang/founder';">
                 <div class="card-body">
                     <h5 class="card-title">Foto Founder</h5>
                     <p class="card-text">Foto dari para pendiri Uniqlass beserta jabatan struktural</p>
