@@ -51,7 +51,7 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Tambah') }}
                         </button>
-                        <a href="{{ route('daftar-event.index') }}" class="btn btn-secondary">
+                        <a href="{{ route('galeri.index') }}" class="btn btn-secondary">
                             {{ __('Cancel') }}
                         </a>
                     </div>
