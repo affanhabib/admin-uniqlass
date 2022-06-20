@@ -17,6 +17,7 @@ class CreateMitrasTable extends Migration
             $table->id();
             $table->string('logo')->nullable();
             $table->string('nama');
+            $table->string('slug');
             $table->string('tahun_berdiri');
             $table->text('deskripsi');
             $table->string('lokasi');

@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('program');
             $table->string('subprogram')->nullable();
             $table->string('judul_event');
+            $table->string('slug');
             $table->date('tanggal_mulai');
             $table->date('tanggal_berakhir');
             $table->time('waktu');

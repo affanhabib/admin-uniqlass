@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Str;
 
 class EventController extends Controller
 {
@@ -57,6 +58,7 @@ class EventController extends Controller
             'program' => $request['program'],
             'subprogram' => $request['subprogram'],
             'judul_event' => $request['judul_event'],
+            'slug' => Str::slug($request['judul_event']),
             'tanggal_mulai' => $request['tanggal_mulai'],
             'tanggal_berakhir' => $request['tanggal_berakhir'],
             'waktu' => $request['waktu'],
@@ -126,6 +128,7 @@ class EventController extends Controller
         $event->program = $request['program'];
         $event->subprogram = $request['subprogram'];
         $event->judul_event = $request['judul_event'];
+        $event->slug = Str::slug($request['judul_event']);
         $event->tanggal_mulai = $request['tanggal_mulai'];
         $event->tanggal_berakhir = $request['tanggal_berakhir'];
         $event->waktu = $request['waktu'];

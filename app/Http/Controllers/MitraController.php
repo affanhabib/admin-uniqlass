@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mitra;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Str;
 
 class MitraController extends Controller
 {
@@ -55,6 +56,7 @@ class MitraController extends Controller
         Mitra::create([
             'logo' => $logoname,
             'nama' => $request['nama'],
+            'slug' => Str::slug($request['nama']),
             'tahun_berdiri' => $request['tahun_berdiri'],
             'deskripsi' => $request['deskripsi'],
             'lokasi' => $request['lokasi'],
@@ -123,6 +125,7 @@ class MitraController extends Controller
             $mitra->logo = $logoname;
         }
         $mitra->nama = $request['nama'];
+        $mitra->slug = Str::slug($request['nama']);
         $mitra->tahun_berdiri = $request['tahun_berdiri'];
         $mitra->deskripsi = $request['deskripsi'];
         $mitra->lokasi = $request['lokasi'];
