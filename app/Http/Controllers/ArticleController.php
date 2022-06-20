@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -47,6 +48,7 @@ class ArticleController extends Controller
         Article::create([
             'header' => $headername,
             'judul' => $request['judul'],
+            'slug' => Str::slug($request['judul']),
             'artikel' => $request['artikel'],
             'author' => Auth::user()->name,
         ]);
@@ -100,6 +102,7 @@ class ArticleController extends Controller
             $article->header = $headername;
         }
         $article->judul = $request['judul'];
+        $article->slug = Str::slug($request['judul']);
         $article->artikel = $request['artikel'];
 
         $article->save();

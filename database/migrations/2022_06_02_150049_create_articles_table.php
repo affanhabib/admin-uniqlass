@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('header');
             $table->string('judul');
+            $table->string('slug');
             $table->string('author');
             $table->text('artikel');
             $table->timestamps();
